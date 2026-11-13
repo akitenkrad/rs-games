@@ -58,7 +58,7 @@ class CatalogIntegrationTests(unittest.TestCase):
         self.assertIn("1 game(s).", english)
         self.assertIn("| Game | Summary | Tags | Repo |", english)
         self.assertIn(
-            "| [Nim](games/rs-nim) | Play Nim against a CPU. | `strategy` `tui` | "
+            "| [Nim](https://github.com/akitenkrad/rs-nim) | Play Nim against a CPU. | `strategy` `tui` | "
             "[rs-nim](https://github.com/akitenkrad/rs-nim) |",
             english,
         )
@@ -67,7 +67,7 @@ class CatalogIntegrationTests(unittest.TestCase):
         self.assertIn(marker, japanese)
         self.assertIn("1 本のゲームを収録しています．", japanese)
         self.assertIn("| ゲーム | 概要 | タグ | リポジトリ |", japanese)
-        self.assertIn("| [ニム](games/rs-nim) | CPU と Nim を対戦します．", japanese)
+        self.assertIn("| [ニム](https://github.com/akitenkrad/rs-nim) | CPU と Nim を対戦します．", japanese)
 
         snapshot = (english, japanese)
         second = self.run_catalog()

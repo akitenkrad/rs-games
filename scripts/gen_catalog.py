@@ -140,12 +140,14 @@ def render_catalog(games: list[dict[str, Any]], *, japanese: bool) -> str:
             "|---|---|---|---|",
         ]
 
+    # Link to the game's own repository: a relative link to the submodule path
+    # (games/<key>) becomes blob/main/games/<key> on GitHub, which is a 404.
     for game in games:
         key = game["key"]
         title = game["title_ja"] if japanese else game["title"]
         summary = game["summary_ja"] if japanese else game["summary"]
         lines.append(
-            f"| [{escape_cell(title)}](games/{key}) | {escape_cell(summary)} | "
+            f"| [{escape_cell(title)}](https://github.com/akitenkrad/{key}) | {escape_cell(summary)} | "
             f"{tags_cell(game['tags'])} | "
             f"[{key}](https://github.com/akitenkrad/{key}) |"
         )

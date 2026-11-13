@@ -86,7 +86,7 @@ printf '\\n[submodule "%s"]\\n\\tpath = %s\\n\\turl = %s\\n' "$path" "$path" "$u
         self.assertEqual(catalog.count('key = "rs-tetris"'), 1)
         self.assertIn('title = "TODO"', catalog)
         self.assertIn("Fill in the TODO fields", first.stdout)
-        self.assertIn("[TODO](games/rs-tetris)", (self.root / "README.md").read_text(encoding="utf-8"))
+        self.assertIn("[TODO](https://github.com/akitenkrad/rs-tetris)", (self.root / "README.md").read_text(encoding="utf-8"))
 
         second = self.run_add("rs-tetris")
         self.assertEqual(second.returncode, 0, second.stderr)

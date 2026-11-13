@@ -14,8 +14,8 @@ Rust で書いたターミナルゲームのコレクションです．各ゲー
 
 | ゲーム | 概要 | タグ | リポジトリ |
 |---|---|---|---|
-| [ニム](games/rs-nim) | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
-| [三目並べ](games/rs-tic-tac-toe) | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
+| [ニム](https://github.com/akitenkrad/rs-nim) | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
+| [三目並べ](https://github.com/akitenkrad/rs-tic-tac-toe) | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
 
 <!-- END:games -->
 

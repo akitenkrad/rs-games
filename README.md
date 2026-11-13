@@ -14,8 +14,8 @@ A collection of terminal games written in Rust. Each game lives in its own repos
 
 | Game | Summary | Tags | Repo |
 |---|---|---|---|
-| [Nim](games/rs-nim) | Play Nim against a CPU (normal / misère), learn the nim-sum, and replay recorded games. | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
-| [Tic-tac-toe](games/rs-tic-tac-toe) | Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games. | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
+| [Nim](https://github.com/akitenkrad/rs-nim) | Play Nim against a CPU (normal / misère), learn the nim-sum, and replay recorded games. | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
+| [Tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) | Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games. | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
 
 <!-- END:games -->
 
