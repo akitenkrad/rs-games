@@ -1,0 +1,3 @@
+[submodule "games/rs-nim"]
+	path = games/rs-nim
+	url = https://github.com/akitenkrad/rs-nim.git

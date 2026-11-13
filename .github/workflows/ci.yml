@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test catalog tooling
+        run: python3 -m unittest discover -s tests -v
+      - name: Check generated catalog
+        shell: bash
+        run: |
+          if ! python3 scripts/gen_catalog.py --check; then
+            echo "::error::Catalog is stale; run python3 scripts/gen_catalog.py and commit the generated README changes."
+            exit 1
+          fi
+
+  games:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Test every game
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r key; do
+            echo "::group::cargo test --locked ($key)"
+            (cd "games/$key" && cargo test --locked)
+            echo "::endgroup::"
+          done < <(python3 - <<'PY'
+          import tomllib
+
+          with open("games.toml", "rb") as handle:
+              for game in tomllib.load(handle)["games"]:
+                  print(game["key"])
+          PY
+          )

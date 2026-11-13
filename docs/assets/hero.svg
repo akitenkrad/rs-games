@@ -1,0 +1,135 @@
+<!--
+  Repository hero for rs-games.
+  Self-contained SVG: no external fonts, images, scripts, or network resources.
+-->
+<svg width="100%" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">rs-games — A collection of terminal games written in Rust</title>
+  <desc id="hero-desc">A terminal window containing a shelf of game cartridges: rs-nim with stone rows of one, three, five, and seven, followed by three empty coming-soon slots connected as Git submodules.</desc>
+
+  <style>
+    .eyebrow,
+    .title,
+    .subtitle,
+    .window-label,
+    .card-title,
+    .slot-label,
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+    .eyebrow { fill: #534AB7; font-size: 11px; font-weight: 700; letter-spacing: 2.2px; }
+    .title { fill: #2C2C2A; font-size: 42px; font-weight: 700; letter-spacing: -1px; }
+    .subtitle { fill: #5F5E5A; font-size: 14px; }
+    .terminal-shell { fill: #FAF9F6; stroke: #5F5E5A; stroke-width: 1.3; }
+    .terminal-bar { fill: #F1EFE8; stroke: #5F5E5A; stroke-width: 1.3; }
+    .window-label { fill: #5F5E5A; font-size: 10px; font-weight: 600; letter-spacing: 0.7px; }
+    .window-dot-gray { fill: #5F5E5A; }
+    .window-dot-purple { fill: #534AB7; }
+    .window-dot-teal { fill: #0F6E56; }
+    .shelf { stroke: #5F5E5A; stroke-width: 2; stroke-linecap: round; }
+    .shelf-shadow { fill: #F1EFE8; }
+    .connector { fill: none; stroke: #534AB7; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .connector-node { fill: #FAF9F6; stroke: #534AB7; stroke-width: 1.4; }
+    .active-card { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 1.2; }
+    .card-notch { fill: #0F6E56; }
+    .card-title { fill: #085041; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
+    .stone { fill: #534AB7; }
+    .empty-card { fill: #FAF9F6; stroke: #5F5E5A; stroke-width: 1; stroke-dasharray: 5 4; }
+    .slot-plus { fill: none; stroke: #5F5E5A; stroke-width: 1.3; stroke-linecap: round; }
+    .slot-label { fill: #5F5E5A; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; }
+    .badge { fill: #EEEDFE; stroke: #534AB7; stroke-width: 1; }
+    .badge-text { fill: #3C3489; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; }
+
+    @media (prefers-color-scheme: dark) {
+      .eyebrow { fill: #AFA9EC; }
+      .title { fill: #E5E5E2; }
+      .subtitle { fill: #C7C5BD; }
+      .terminal-shell { fill: #252523; stroke: #B4B2A9; }
+      .terminal-bar { fill: #3A3A37; stroke: #B4B2A9; }
+      .window-label { fill: #C7C5BD; }
+      .window-dot-gray { fill: #B4B2A9; }
+      .window-dot-purple { fill: #AFA9EC; }
+      .window-dot-teal { fill: #5DCAA5; }
+      .shelf { stroke: #B4B2A9; }
+      .shelf-shadow { fill: #3A3A37; }
+      .connector { stroke: #AFA9EC; }
+      .connector-node { fill: #252523; stroke: #AFA9EC; }
+      .active-card { fill: #085041; stroke: #5DCAA5; }
+      .card-notch { fill: #5DCAA5; }
+      .card-title { fill: #9FE1CB; }
+      .stone { fill: #AFA9EC; }
+      .empty-card { fill: #2C2C2A; stroke: #B4B2A9; }
+      .slot-plus { stroke: #B4B2A9; }
+      .slot-label { fill: #C7C5BD; }
+      .badge { fill: #3C3489; stroke: #AFA9EC; }
+      .badge-text { fill: #CECBF6; }
+    }
+  </style>
+
+  <!-- Title block -->
+  <text class="eyebrow" x="42" y="91">RUST · TERMINAL · PLAY</text>
+  <text class="title" x="40" y="143">rs-games</text>
+  <text class="subtitle" x="42" y="177">A collection of terminal games</text>
+  <text class="subtitle" x="42" y="198">written in Rust</text>
+
+  <!-- Terminal window background -->
+  <rect class="terminal-shell" x="348" y="35" width="512" height="230" rx="12"/>
+  <path class="terminal-bar" d="M360 35H848A12 12 0 0 1 860 47V69H348V47A12 12 0 0 1 360 35Z"/>
+  <circle class="window-dot-purple" cx="369" cy="52" r="4"/>
+  <circle class="window-dot-teal" cx="383" cy="52" r="4"/>
+  <circle class="window-dot-gray" cx="397" cy="52" r="4"/>
+  <text class="window-label" x="604" y="56" text-anchor="middle">~/rs-games/games</text>
+
+  <!-- Connection graph and shelf, drawn behind the cartridges -->
+  <path class="connector" d="M604 253V245H414V229M604 245H803V229M604 245H546V229M604 245H675V229"/>
+  <circle class="connector-node" cx="604" cy="245" r="3.2"/>
+  <rect class="shelf-shadow" x="368" y="229" width="472" height="13" rx="3"/>
+  <path class="shelf" d="M368 229H840"/>
+
+  <!-- rs-nim cartridge -->
+  <g aria-label="rs-nim cartridge with Nim stone rows of one, three, five, and seven">
+    <rect class="active-card" x="370" y="88" width="124" height="141" rx="8"/>
+    <path class="card-notch" d="M414 88H450V94A4 4 0 0 1 446 98H418A4 4 0 0 1 414 94Z"/>
+    <text class="card-title" x="432" y="120" text-anchor="middle">rs-nim</text>
+
+    <!-- Nim rows: 1, 3, 5, 7 stones -->
+    <circle class="stone" cx="432" cy="142" r="3.2"/>
+    <circle class="stone" cx="422" cy="154" r="3.2"/>
+    <circle class="stone" cx="432" cy="154" r="3.2"/>
+    <circle class="stone" cx="442" cy="154" r="3.2"/>
+    <circle class="stone" cx="412" cy="166" r="3.2"/>
+    <circle class="stone" cx="422" cy="166" r="3.2"/>
+    <circle class="stone" cx="432" cy="166" r="3.2"/>
+    <circle class="stone" cx="442" cy="166" r="3.2"/>
+    <circle class="stone" cx="452" cy="166" r="3.2"/>
+    <circle class="stone" cx="402" cy="178" r="3.2"/>
+    <circle class="stone" cx="412" cy="178" r="3.2"/>
+    <circle class="stone" cx="422" cy="178" r="3.2"/>
+    <circle class="stone" cx="432" cy="178" r="3.2"/>
+    <circle class="stone" cx="442" cy="178" r="3.2"/>
+    <circle class="stone" cx="452" cy="178" r="3.2"/>
+    <circle class="stone" cx="462" cy="178" r="3.2"/>
+    <text class="slot-label" x="432" y="207" text-anchor="middle">1 · 3 · 5 · 7</text>
+  </g>
+
+  <!-- Empty cartridge slots -->
+  <g aria-label="Three coming-soon game slots">
+    <rect class="empty-card" x="510" y="105" width="72" height="124" rx="8"/>
+    <path class="slot-plus" d="M540 157H552M546 151V163"/>
+    <text class="slot-label" x="546" y="186" text-anchor="middle">coming</text>
+    <text class="slot-label" x="546" y="198" text-anchor="middle">soon</text>
+
+    <rect class="empty-card" x="639" y="105" width="72" height="124" rx="8"/>
+    <path class="slot-plus" d="M669 157H681M675 151V163"/>
+    <text class="slot-label" x="675" y="186" text-anchor="middle">coming</text>
+    <text class="slot-label" x="675" y="198" text-anchor="middle">soon</text>
+
+    <rect class="empty-card" x="767" y="105" width="72" height="124" rx="8"/>
+    <path class="slot-plus" d="M797 157H809M803 151V163"/>
+    <text class="slot-label" x="803" y="186" text-anchor="middle">coming</text>
+    <text class="slot-label" x="803" y="198" text-anchor="middle">soon</text>
+  </g>
+
+  <!-- Submodule label -->
+  <rect class="badge" x="553" y="253" width="102" height="22" rx="11"/>
+  <text class="badge-text" x="604" y="268" text-anchor="middle">git submodule</text>
+</svg>
