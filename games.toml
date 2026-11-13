@@ -33,3 +33,11 @@ title_ja = "五目並べ"
 summary = "Play Gomoku on boards from 7 x 7 to 19 x 19 (freestyle or exact-five rule) against a pattern-based CPU with VCF search, and replay recorded games."
 summary_ja = "7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応．"
 tags = ["strategy", "alpha-beta", "ratatui", "tui"]
+
+[[games]]
+key = "rs-fifo-tic-tac-toe"
+title = "FIFO tic-tac-toe"
+title_ja = "FIFO 三目並べ"
+summary = "Tic-tac-toe where old marks vanish: choose the timing rule (T1 / T2 / T3) and how many marks each side keeps, play a CPU that has solved every position by retrograde analysis, and replay recorded games."
+summary_ja = "古い手が消える三目並べ．消えるタイミング（T1・T2・T3）と残せる手の数を選べ，後退解析で全局面を解いた CPU と対戦できる．棋譜のリプレイ・録画にも対応．"
+tags = ["strategy", "retrograde-analysis", "ratatui", "tui"]

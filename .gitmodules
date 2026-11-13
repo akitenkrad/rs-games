@@ -10,3 +10,6 @@
 [submodule "games/rs-gomoku"]
 	path = games/rs-gomoku
 	url = https://github.com/akitenkrad/rs-gomoku.git
+[submodule "games/rs-fifo-tic-tac-toe"]
+	path = games/rs-fifo-tic-tac-toe
+	url = https://github.com/akitenkrad/rs-fifo-tic-tac-toe.git
