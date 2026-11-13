@@ -55,3 +55,4 @@ PY
 
 python3 scripts/gen_catalog.py
 printf 'Fill in the TODO fields in games.toml, re-run python3 scripts/gen_catalog.py, then commit.\n'
+printf 'Optionally add demos/%s.tape and run scripts/record-demos.sh %s to record a gameplay GIF.\n' "$key" "$key"

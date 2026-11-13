@@ -12,12 +12,12 @@ Rust で書いたターミナルゲームのコレクションです．各ゲー
 
 4 本のゲームを収録しています．
 
-| ゲーム | 概要 | タグ | リポジトリ |
+| ゲーム | プレイの様子 | 概要 | リポジトリ |
 |---|---|---|---|
-| [ニム](https://github.com/akitenkrad/rs-nim) | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
-| [三目並べ](https://github.com/akitenkrad/rs-tic-tac-toe) | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
-| [四目並べ](https://github.com/akitenkrad/rs-connect-four) | 4 × 4〜10 × 9 の盤で αβ 探索の CPU と対戦する四目並べ．各列の評価を表示でき，棋譜のリプレイ・録画にも対応． | `strategy` `alpha-beta` `ratatui` `tui` | [rs-connect-four](https://github.com/akitenkrad/rs-connect-four) |
-| [五目並べ](https://github.com/akitenkrad/rs-gomoku) | 7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応． | `strategy` `alpha-beta` `ratatui` `tui` | [rs-gomoku](https://github.com/akitenkrad/rs-gomoku) |
+| [ニム](https://github.com/akitenkrad/rs-nim) | <img src="docs/assets/games/rs-nim.gif" alt="ニム のプレイの様子" width="360"> | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． | [rs-nim](https://github.com/akitenkrad/rs-nim) |
+| [三目並べ](https://github.com/akitenkrad/rs-tic-tac-toe) | <img src="docs/assets/games/rs-tic-tac-toe.gif" alt="三目並べ のプレイの様子" width="360"> | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
+| [四目並べ](https://github.com/akitenkrad/rs-connect-four) | <img src="docs/assets/games/rs-connect-four.gif" alt="四目並べ のプレイの様子" width="360"> | 4 × 4〜10 × 9 の盤で αβ 探索の CPU と対戦する四目並べ．各列の評価を表示でき，棋譜のリプレイ・録画にも対応． | [rs-connect-four](https://github.com/akitenkrad/rs-connect-four) |
+| [五目並べ](https://github.com/akitenkrad/rs-gomoku) | <img src="docs/assets/games/rs-gomoku.gif" alt="五目並べ のプレイの様子" width="360"> | 7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応． | [rs-gomoku](https://github.com/akitenkrad/rs-gomoku) |
 
 <!-- END:games -->
 

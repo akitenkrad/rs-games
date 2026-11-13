@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import configparser
 import difflib
+import html
 import re
 import sys
 import tomllib
@@ -115,11 +116,19 @@ def escape_cell(value: str) -> str:
     return value.replace("|", r"\|")
 
 
-def tags_cell(tags: list[str]) -> str:
-    return " ".join(f"`{escape_cell(tag)}`" for tag in tags)
+def preview_cell(root: Path, game: dict[str, Any], *, japanese: bool) -> str:
+    key = game["key"]
+    relative_path = f"docs/assets/games/{key}.gif"
+    if not (root / relative_path).exists():
+        return "—"
+
+    title = game["title_ja"] if japanese else game["title"]
+    alt = f"{title} のプレイの様子" if japanese else f"{title} gameplay"
+    escaped_alt = escape_cell(html.escape(alt, quote=True))
+    return f'<img src="{relative_path}" alt="{escaped_alt}" width="360">'
 
 
-def render_catalog(games: list[dict[str, Any]], *, japanese: bool) -> str:
+def render_catalog(games: list[dict[str, Any]], *, root: Path, japanese: bool) -> str:
     count = len(games)
     if japanese:
         lines = [
@@ -127,7 +136,7 @@ def render_catalog(games: list[dict[str, Any]], *, japanese: bool) -> str:
             "",
             f"{count} 本のゲームを収録しています．",
             "",
-            "| ゲーム | 概要 | タグ | リポジトリ |",
+            "| ゲーム | プレイの様子 | 概要 | リポジトリ |",
             "|---|---|---|---|",
         ]
     else:
@@ -136,7 +145,7 @@ def render_catalog(games: list[dict[str, Any]], *, japanese: bool) -> str:
             "",
             f"{count} game(s).",
             "",
-            "| Game | Summary | Tags | Repo |",
+            "| Game | Preview | Summary | Repo |",
             "|---|---|---|---|",
         ]
 
@@ -147,8 +156,8 @@ def render_catalog(games: list[dict[str, Any]], *, japanese: bool) -> str:
         title = game["title_ja"] if japanese else game["title"]
         summary = game["summary_ja"] if japanese else game["summary"]
         lines.append(
-            f"| [{escape_cell(title)}](https://github.com/akitenkrad/{key}) | {escape_cell(summary)} | "
-            f"{tags_cell(game['tags'])} | "
+            f"| [{escape_cell(title)}](https://github.com/akitenkrad/{key}) | "
+            f"{preview_cell(root, game, japanese=japanese)} | {escape_cell(summary)} | "
             f"[{key}](https://github.com/akitenkrad/{key}) |"
         )
     lines.extend(("", END_MARKER))
@@ -188,7 +197,7 @@ def generate(root: Path, *, check: bool) -> bool:
     for filename, japanese in (("README.md", False), ("README.ja.md", True)):
         path = root / filename
         current = read_text_exact(path)
-        updated = replace_catalog(path, current, render_catalog(games, japanese=japanese))
+        updated = replace_catalog(path, current, render_catalog(games, root=root, japanese=japanese))
         planned.append((path, current, updated))
 
     changed = [(path, current, updated) for path, current, updated in planned if current != updated]

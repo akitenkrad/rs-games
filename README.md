@@ -12,12 +12,12 @@ A collection of terminal games written in Rust. Each game lives in its own repos
 
 4 game(s).
 
-| Game | Summary | Tags | Repo |
+| Game | Preview | Summary | Repo |
 |---|---|---|---|
-| [Nim](https://github.com/akitenkrad/rs-nim) | Play Nim against a CPU (normal / misère), learn the nim-sum, and replay recorded games. | `strategy` `ratatui` `tui` | [rs-nim](https://github.com/akitenkrad/rs-nim) |
-| [Tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) | Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games. | `strategy` `minimax` `ratatui` `tui` | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
-| [Connect Four](https://github.com/akitenkrad/rs-connect-four) | Play Connect Four on any board from 4 x 4 to 10 x 9 against an alpha-beta CPU, see every column evaluated, and replay recorded games. | `strategy` `alpha-beta` `ratatui` `tui` | [rs-connect-four](https://github.com/akitenkrad/rs-connect-four) |
-| [Gomoku](https://github.com/akitenkrad/rs-gomoku) | Play Gomoku on boards from 7 x 7 to 19 x 19 (freestyle or exact-five rule) against a pattern-based CPU with VCF search, and replay recorded games. | `strategy` `alpha-beta` `ratatui` `tui` | [rs-gomoku](https://github.com/akitenkrad/rs-gomoku) |
+| [Nim](https://github.com/akitenkrad/rs-nim) | <img src="docs/assets/games/rs-nim.gif" alt="Nim gameplay" width="360"> | Play Nim against a CPU (normal / misère), learn the nim-sum, and replay recorded games. | [rs-nim](https://github.com/akitenkrad/rs-nim) |
+| [Tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) | <img src="docs/assets/games/rs-tic-tac-toe.gif" alt="Tic-tac-toe gameplay" width="360"> | Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games. | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
+| [Connect Four](https://github.com/akitenkrad/rs-connect-four) | <img src="docs/assets/games/rs-connect-four.gif" alt="Connect Four gameplay" width="360"> | Play Connect Four on any board from 4 x 4 to 10 x 9 against an alpha-beta CPU, see every column evaluated, and replay recorded games. | [rs-connect-four](https://github.com/akitenkrad/rs-connect-four) |
+| [Gomoku](https://github.com/akitenkrad/rs-gomoku) | <img src="docs/assets/games/rs-gomoku.gif" alt="Gomoku gameplay" width="360"> | Play Gomoku on boards from 7 x 7 to 19 x 19 (freestyle or exact-five rule) against a pattern-based CPU with VCF search, and replay recorded games. | [rs-gomoku](https://github.com/akitenkrad/rs-gomoku) |
 
 <!-- END:games -->
 
