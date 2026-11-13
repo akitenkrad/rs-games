@@ -1,3 +1,6 @@
 [submodule "games/rs-nim"]
 	path = games/rs-nim
 	url = https://github.com/akitenkrad/rs-nim.git
+[submodule "games/rs-tic-tac-toe"]
+	path = games/rs-tic-tac-toe
+	url = https://github.com/akitenkrad/rs-tic-tac-toe.git

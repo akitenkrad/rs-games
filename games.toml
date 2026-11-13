@@ -9,3 +9,11 @@ title_ja = "ニム"
 summary = "Play Nim against a CPU (normal / misère), learn the nim-sum, and replay recorded games."
 summary_ja = "CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応．"
 tags = ["strategy", "ratatui", "tui"]
+
+[[games]]
+key = "rs-tic-tac-toe"
+title = "Tic-tac-toe"
+title_ja = "三目並べ"
+summary = "Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games."
+summary_ja = "ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応．"
+tags = ["strategy", "minimax", "ratatui", "tui"]
