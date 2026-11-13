@@ -4,18 +4,15 @@ import os
 import shutil
 import subprocess
 import tempfile
+import tomllib
 import unittest
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_SCRIPT = PROJECT_ROOT / "scripts" / "record-demos.sh"
-EXPECTED_KEYS = {
-    "rs-nim",
-    "rs-tic-tac-toe",
-    "rs-connect-four",
-    "rs-gomoku",
-}
+with (PROJECT_ROOT / "games.toml").open("rb") as catalog:
+    CATALOG_KEYS = {game["key"] for game in tomllib.load(catalog)["games"]}
 
 
 class RecordDemosIntegrationTests(unittest.TestCase):
@@ -73,7 +70,9 @@ class RecordDemosIntegrationTests(unittest.TestCase):
 class DemoTapeContractTests(unittest.TestCase):
     def test_each_tape_replays_its_game_and_stays_on_the_final_position(self) -> None:
         tapes = sorted((PROJECT_ROOT / "demos").glob("*.tape"))
-        self.assertEqual({tape.stem for tape in tapes}, EXPECTED_KEYS)
+        self.assertTrue(tapes)
+        # Every tape must belong to a game in the catalog; games without a tape show "—".
+        self.assertLessEqual({tape.stem for tape in tapes}, CATALOG_KEYS)
         for tape in tapes:
             with self.subTest(tape=tape.name):
                 key = tape.stem
