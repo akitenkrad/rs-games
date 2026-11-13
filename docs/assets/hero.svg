@@ -4,15 +4,19 @@
 -->
 <svg width="100%" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">rs-games — A collection of terminal games written in Rust</title>
-  <desc id="hero-desc">A terminal window containing a shelf of game cartridges: rs-nim with stone rows of one, three, five, and seven, followed by three empty coming-soon slots connected as Git submodules.</desc>
+  <desc id="hero-desc">A terminal window containing a continuous shelf of uniform game cartridges with generic grid, stone, die, maze, and directional-control pictograms, connected to a Git submodule label.</desc>
+
+  <defs>
+    <clipPath id="terminal-content-clip">
+      <rect x="349" y="70" width="509" height="160"/>
+    </clipPath>
+  </defs>
 
   <style>
     .eyebrow,
     .title,
     .subtitle,
     .window-label,
-    .card-title,
-    .slot-label,
     .badge-text {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     }
@@ -27,15 +31,19 @@
     .window-dot-teal { fill: #0F6E56; }
     .shelf { stroke: #5F5E5A; stroke-width: 2; stroke-linecap: round; }
     .shelf-shadow { fill: #F1EFE8; }
-    .connector { fill: none; stroke: #534AB7; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-    .connector-node { fill: #FAF9F6; stroke: #534AB7; stroke-width: 1.4; }
-    .active-card { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 1.2; }
-    .card-notch { fill: #0F6E56; }
-    .card-title { fill: #085041; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
-    .stone { fill: #534AB7; }
-    .empty-card { fill: #FAF9F6; stroke: #5F5E5A; stroke-width: 1; stroke-dasharray: 5 4; }
-    .slot-plus { fill: none; stroke: #5F5E5A; stroke-width: 1.3; stroke-linecap: round; }
-    .slot-label { fill: #5F5E5A; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; }
+    .connector { fill: none; stroke: #534AB7; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+    .connector-node { fill: #FAF9F6; stroke: #534AB7; stroke-width: 1.3; }
+    .game-tile { fill: #FAF9F6; stroke: #5F5E5A; stroke-width: 1.15; }
+    .notch-gray { fill: #5F5E5A; }
+    .notch-purple { fill: #534AB7; }
+    .notch-teal { fill: #0F6E56; }
+    .icon-gray { fill: none; stroke: #5F5E5A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-purple { fill: none; stroke: #534AB7; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-teal { fill: none; stroke: #0F6E56; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .dot-gray { fill: #5F5E5A; }
+    .dot-purple { fill: #534AB7; }
+    .dot-teal { fill: #0F6E56; }
+    .contact { stroke: #5F5E5A; stroke-width: 1.6; stroke-linecap: round; }
     .badge { fill: #EEEDFE; stroke: #534AB7; stroke-width: 1; }
     .badge-text { fill: #3C3489; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; }
 
@@ -53,13 +61,17 @@
       .shelf-shadow { fill: #3A3A37; }
       .connector { stroke: #AFA9EC; }
       .connector-node { fill: #252523; stroke: #AFA9EC; }
-      .active-card { fill: #085041; stroke: #5DCAA5; }
-      .card-notch { fill: #5DCAA5; }
-      .card-title { fill: #9FE1CB; }
-      .stone { fill: #AFA9EC; }
-      .empty-card { fill: #2C2C2A; stroke: #B4B2A9; }
-      .slot-plus { stroke: #B4B2A9; }
-      .slot-label { fill: #C7C5BD; }
+      .game-tile { fill: #2C2C2A; stroke: #B4B2A9; }
+      .notch-gray { fill: #B4B2A9; }
+      .notch-purple { fill: #AFA9EC; }
+      .notch-teal { fill: #5DCAA5; }
+      .icon-gray { stroke: #B4B2A9; }
+      .icon-purple { stroke: #AFA9EC; }
+      .icon-teal { stroke: #5DCAA5; }
+      .dot-gray { fill: #B4B2A9; }
+      .dot-purple { fill: #AFA9EC; }
+      .dot-teal { fill: #5DCAA5; }
+      .contact { stroke: #B4B2A9; }
       .badge { fill: #3C3489; stroke: #AFA9EC; }
       .badge-text { fill: #CECBF6; }
     }
@@ -71,7 +83,7 @@
   <text class="subtitle" x="42" y="177">A collection of terminal games</text>
   <text class="subtitle" x="42" y="198">written in Rust</text>
 
-  <!-- Terminal window background -->
+  <!-- Terminal window -->
   <rect class="terminal-shell" x="348" y="35" width="512" height="230" rx="12"/>
   <path class="terminal-bar" d="M360 35H848A12 12 0 0 1 860 47V69H348V47A12 12 0 0 1 360 35Z"/>
   <circle class="window-dot-purple" cx="369" cy="52" r="4"/>
@@ -79,57 +91,81 @@
   <circle class="window-dot-gray" cx="397" cy="52" r="4"/>
   <text class="window-label" x="604" y="56" text-anchor="middle">~/rs-games/games</text>
 
-  <!-- Connection graph and shelf, drawn behind the cartridges -->
-  <path class="connector" d="M604 253V245H414V229M604 245H803V229M604 245H546V229M604 245H675V229"/>
-  <circle class="connector-node" cx="604" cy="245" r="3.2"/>
-  <rect class="shelf-shadow" x="368" y="229" width="472" height="13" rx="3"/>
-  <path class="shelf" d="M368 229H840"/>
+  <!-- Submodule connections, drawn behind the shelf and cartridges -->
+  <path class="connector" d="M406 223V236H843M493 223V236M580 223V236M667 223V236M754 223V236M841 223V236M604 236V243"/>
+  <circle class="connector-node" cx="604" cy="236" r="3.1"/>
+  <rect class="shelf-shadow" x="365" y="222" width="480" height="10" rx="3"/>
+  <path class="shelf" d="M366 223H844"/>
 
-  <!-- rs-nim cartridge -->
-  <g aria-label="rs-nim cartridge with Nim stone rows of one, three, five, and seven">
-    <rect class="active-card" x="370" y="88" width="124" height="141" rx="8"/>
-    <path class="card-notch" d="M414 88H450V94A4 4 0 0 1 446 98H418A4 4 0 0 1 414 94Z"/>
-    <text class="card-title" x="432" y="120" text-anchor="middle">rs-nim</text>
+  <!-- The clipped final cartridge suggests that the collection continues. -->
+  <g clip-path="url(#terminal-content-clip)">
+    <!-- Grid -->
+    <g aria-label="Generic game cartridge with a grid pictogram">
+      <rect class="game-tile" x="370" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-purple" d="M395 84H417V90A4 4 0 0 1 413 94H399A4 4 0 0 1 395 90Z"/>
+      <g class="icon-purple">
+        <rect x="391" y="122" width="30" height="30" rx="3"/>
+        <path d="M401 122V152M411 122V152M391 132H421M391 142H421"/>
+      </g>
+      <path class="contact" d="M398 203V213M406 203V213M414 203V213"/>
+    </g>
 
-    <!-- Nim rows: 1, 3, 5, 7 stones -->
-    <circle class="stone" cx="432" cy="142" r="3.2"/>
-    <circle class="stone" cx="422" cy="154" r="3.2"/>
-    <circle class="stone" cx="432" cy="154" r="3.2"/>
-    <circle class="stone" cx="442" cy="154" r="3.2"/>
-    <circle class="stone" cx="412" cy="166" r="3.2"/>
-    <circle class="stone" cx="422" cy="166" r="3.2"/>
-    <circle class="stone" cx="432" cy="166" r="3.2"/>
-    <circle class="stone" cx="442" cy="166" r="3.2"/>
-    <circle class="stone" cx="452" cy="166" r="3.2"/>
-    <circle class="stone" cx="402" cy="178" r="3.2"/>
-    <circle class="stone" cx="412" cy="178" r="3.2"/>
-    <circle class="stone" cx="422" cy="178" r="3.2"/>
-    <circle class="stone" cx="432" cy="178" r="3.2"/>
-    <circle class="stone" cx="442" cy="178" r="3.2"/>
-    <circle class="stone" cx="452" cy="178" r="3.2"/>
-    <circle class="stone" cx="462" cy="178" r="3.2"/>
-    <text class="slot-label" x="432" y="207" text-anchor="middle">1 · 3 · 5 · 7</text>
-  </g>
+    <!-- Scattered stones -->
+    <g aria-label="Generic game cartridge with scattered stone pictograms">
+      <rect class="game-tile" x="457" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-teal" d="M482 84H504V90A4 4 0 0 1 500 94H486A4 4 0 0 1 482 90Z"/>
+      <circle class="dot-teal" cx="482" cy="128" r="4"/>
+      <circle class="dot-teal" cx="501" cy="124" r="4"/>
+      <circle class="dot-teal" cx="510" cy="141" r="4"/>
+      <circle class="dot-teal" cx="486" cy="148" r="4"/>
+      <circle class="dot-teal" cx="499" cy="157" r="4"/>
+      <path class="contact" d="M485 203V213M493 203V213M501 203V213"/>
+    </g>
 
-  <!-- Empty cartridge slots -->
-  <g aria-label="Three coming-soon game slots">
-    <rect class="empty-card" x="510" y="105" width="72" height="124" rx="8"/>
-    <path class="slot-plus" d="M540 157H552M546 151V163"/>
-    <text class="slot-label" x="546" y="186" text-anchor="middle">coming</text>
-    <text class="slot-label" x="546" y="198" text-anchor="middle">soon</text>
+    <!-- Die face -->
+    <g aria-label="Generic game cartridge with a die-face pictogram">
+      <rect class="game-tile" x="544" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-gray" d="M569 84H591V90A4 4 0 0 1 587 94H573A4 4 0 0 1 569 90Z"/>
+      <rect class="icon-gray" x="563" y="121" width="34" height="34" rx="6"/>
+      <circle class="dot-gray" cx="572" cy="130" r="2.5"/>
+      <circle class="dot-gray" cx="588" cy="130" r="2.5"/>
+      <circle class="dot-gray" cx="580" cy="138" r="2.5"/>
+      <circle class="dot-gray" cx="572" cy="146" r="2.5"/>
+      <circle class="dot-gray" cx="588" cy="146" r="2.5"/>
+      <path class="contact" d="M572 203V213M580 203V213M588 203V213"/>
+    </g>
 
-    <rect class="empty-card" x="639" y="105" width="72" height="124" rx="8"/>
-    <path class="slot-plus" d="M669 157H681M675 151V163"/>
-    <text class="slot-label" x="675" y="186" text-anchor="middle">coming</text>
-    <text class="slot-label" x="675" y="198" text-anchor="middle">soon</text>
+    <!-- Maze path -->
+    <g aria-label="Generic game cartridge with a maze-path pictogram">
+      <rect class="game-tile" x="631" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-purple" d="M656 84H678V90A4 4 0 0 1 674 94H660A4 4 0 0 1 656 90Z"/>
+      <path class="icon-purple" d="M648 151V124H686V151H675V134H659V142H668V151Z"/>
+      <circle class="dot-purple" cx="648" cy="151" r="3"/>
+      <circle class="dot-purple" cx="686" cy="151" r="3"/>
+      <path class="contact" d="M659 203V213M667 203V213M675 203V213"/>
+    </g>
 
-    <rect class="empty-card" x="767" y="105" width="72" height="124" rx="8"/>
-    <path class="slot-plus" d="M797 157H809M803 151V163"/>
-    <text class="slot-label" x="803" y="186" text-anchor="middle">coming</text>
-    <text class="slot-label" x="803" y="198" text-anchor="middle">soon</text>
+    <!-- Directional pad -->
+    <g aria-label="Generic game cartridge with a directional-control pictogram">
+      <rect class="game-tile" x="718" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-teal" d="M743 84H765V90A4 4 0 0 1 761 94H747A4 4 0 0 1 743 90Z"/>
+      <path class="icon-teal" d="M748 121H760V132H771V144H760V155H748V144H737V132H748Z"/>
+      <circle class="dot-teal" cx="754" cy="138" r="3"/>
+      <path class="contact" d="M746 203V213M754 203V213M762 203V213"/>
+    </g>
+
+    <!-- Abstract path, intentionally clipped at the window edge -->
+    <g aria-label="A partially visible generic game cartridge indicating more games">
+      <rect class="game-tile" x="805" y="84" width="72" height="139" rx="8"/>
+      <path class="notch-gray" d="M830 84H852V90A4 4 0 0 1 848 94H834A4 4 0 0 1 830 90Z"/>
+      <path class="icon-gray" d="M822 149L833 126L844 148L855 124L866 146"/>
+      <circle class="dot-gray" cx="822" cy="149" r="3"/>
+      <circle class="dot-gray" cx="866" cy="146" r="3"/>
+      <path class="contact" d="M833 203V213M841 203V213M849 203V213"/>
+    </g>
   </g>
 
   <!-- Submodule label -->
-  <rect class="badge" x="553" y="253" width="102" height="22" rx="11"/>
-  <text class="badge-text" x="604" y="268" text-anchor="middle">git submodule</text>
+  <rect class="badge" x="553" y="243" width="102" height="20" rx="10"/>
+  <text class="badge-text" x="604" y="257" text-anchor="middle">git submodule</text>
 </svg>
