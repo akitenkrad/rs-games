@@ -17,3 +17,19 @@ title_ja = "三目並べ"
 summary = "Play tic-tac-toe against a CPU that reads the whole game tree, see every move evaluated as win / draw / loss, and replay recorded games."
 summary_ja = "ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応．"
 tags = ["strategy", "minimax", "ratatui", "tui"]
+
+[[games]]
+key = "rs-connect-four"
+title = "Connect Four"
+title_ja = "四目並べ"
+summary = "Play Connect Four on any board from 4 x 4 to 10 x 9 against an alpha-beta CPU, see every column evaluated, and replay recorded games."
+summary_ja = "4 × 4〜10 × 9 の盤で αβ 探索の CPU と対戦する四目並べ．各列の評価を表示でき，棋譜のリプレイ・録画にも対応．"
+tags = ["strategy", "alpha-beta", "ratatui", "tui"]
+
+[[games]]
+key = "rs-gomoku"
+title = "Gomoku"
+title_ja = "五目並べ"
+summary = "Play Gomoku on boards from 7 x 7 to 19 x 19 (freestyle or exact-five rule) against a pattern-based CPU with VCF search, and replay recorded games."
+summary_ja = "7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応．"
+tags = ["strategy", "alpha-beta", "ratatui", "tui"]

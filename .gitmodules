@@ -4,3 +4,9 @@
 [submodule "games/rs-tic-tac-toe"]
 	path = games/rs-tic-tac-toe
 	url = https://github.com/akitenkrad/rs-tic-tac-toe.git
+[submodule "games/rs-connect-four"]
+	path = games/rs-connect-four
+	url = https://github.com/akitenkrad/rs-connect-four.git
+[submodule "games/rs-gomoku"]
+	path = games/rs-gomoku
+	url = https://github.com/akitenkrad/rs-gomoku.git
