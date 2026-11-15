@@ -12,14 +12,14 @@ Rust で書いたターミナルゲームのコレクションです．各ゲー
 
 6 本のゲームを収録しています．
 
-| ゲーム | プレイの様子 | 概要 | リポジトリ |
-|---|---|---|---|
-| [ニム](https://github.com/akitenkrad/rs-nim) | <img src="docs/assets/games/rs-nim.gif" alt="ニム のプレイの様子" width="360"> | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． | [rs-nim](https://github.com/akitenkrad/rs-nim) |
-| [三目並べ](https://github.com/akitenkrad/rs-tic-tac-toe) | <img src="docs/assets/games/rs-tic-tac-toe.gif" alt="三目並べ のプレイの様子" width="360"> | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． | [rs-tic-tac-toe](https://github.com/akitenkrad/rs-tic-tac-toe) |
-| [四目並べ](https://github.com/akitenkrad/rs-connect-four) | <img src="docs/assets/games/rs-connect-four.gif" alt="四目並べ のプレイの様子" width="360"> | 4 × 4〜10 × 9 の盤で αβ 探索の CPU と対戦する四目並べ．各列の評価を表示でき，棋譜のリプレイ・録画にも対応． | [rs-connect-four](https://github.com/akitenkrad/rs-connect-four) |
-| [五目並べ](https://github.com/akitenkrad/rs-gomoku) | <img src="docs/assets/games/rs-gomoku.gif" alt="五目並べ のプレイの様子" width="360"> | 7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応． | [rs-gomoku](https://github.com/akitenkrad/rs-gomoku) |
-| [FIFO 三目並べ](https://github.com/akitenkrad/rs-fifo-tic-tac-toe) | <img src="docs/assets/games/rs-fifo-tic-tac-toe.gif" alt="FIFO 三目並べ のプレイの様子" width="360"> | 古い手が消える三目並べ．消えるタイミング（T1・T2・T3）と残せる手の数を選べ，後退解析で全局面を解いた CPU と対戦できる．棋譜のリプレイ・録画にも対応． | [rs-fifo-tic-tac-toe](https://github.com/akitenkrad/rs-fifo-tic-tac-toe) |
-| [タイピング練習](https://github.com/akitenkrad/rs-typing-trainer) | <img src="docs/assets/games/rs-typing-trainer.gif" alt="タイピング練習 のプレイの様子" width="360"> | 打鍵と連動するキーボード表示（Dvorak・Colemak ほか）で，英単語・ローマ字・短文・弱点の重点練習ができるタイピング練習．固定のベンチマーク，打鍵の傾向分析，記録のリプレイにも対応． | [rs-typing-trainer](https://github.com/akitenkrad/rs-typing-trainer) |
+| ゲーム | プレイの様子 | 概要 |
+|---|---|---|
+| [ニム](https://github.com/akitenkrad/rs-nim) | <img src="docs/assets/games/rs-nim.gif" alt="ニム のプレイの様子" width="360"> | CPU と対戦する Nim（通常・ミゼール）．ニム和で必勝法を学べ，棋譜のリプレイ・録画にも対応． |
+| [三目並べ](https://github.com/akitenkrad/rs-tic-tac-toe) | <img src="docs/assets/games/rs-tic-tac-toe.gif" alt="三目並べ のプレイの様子" width="360"> | ゲーム木を読み切る CPU と対戦する三目並べ．各マスの勝ち・引分・負けを表示でき，棋譜のリプレイ・録画にも対応． |
+| [四目並べ](https://github.com/akitenkrad/rs-connect-four) | <img src="docs/assets/games/rs-connect-four.gif" alt="四目並べ のプレイの様子" width="360"> | 4 × 4〜10 × 9 の盤で αβ 探索の CPU と対戦する四目並べ．各列の評価を表示でき，棋譜のリプレイ・録画にも対応． |
+| [五目並べ](https://github.com/akitenkrad/rs-gomoku) | <img src="docs/assets/games/rs-gomoku.gif" alt="五目並べ のプレイの様子" width="360"> | 7〜19 路の盤で，石の形の評価と四追い探索を使う CPU と対戦する五目並べ（自由・標準ルール）．棋譜のリプレイ・録画にも対応． |
+| [FIFO 三目並べ](https://github.com/akitenkrad/rs-fifo-tic-tac-toe) | <img src="docs/assets/games/rs-fifo-tic-tac-toe.gif" alt="FIFO 三目並べ のプレイの様子" width="360"> | 古い手が消える三目並べ．消えるタイミング（T1・T2・T3）と残せる手の数を選べ，後退解析で全局面を解いた CPU と対戦できる．棋譜のリプレイ・録画にも対応． |
+| [タイピング練習](https://github.com/akitenkrad/rs-typing-trainer) | <img src="docs/assets/games/rs-typing-trainer.gif" alt="タイピング練習 のプレイの様子" width="360"> | 打鍵と連動するキーボード表示（Dvorak・Colemak ほか）で，英単語・ローマ字・短文・弱点の重点練習ができるタイピング練習．固定のベンチマーク，打鍵の傾向分析，記録のリプレイにも対応． |
 
 <!-- END:games -->
 

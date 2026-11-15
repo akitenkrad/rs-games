@@ -136,8 +136,8 @@ def render_catalog(games: list[dict[str, Any]], *, root: Path, japanese: bool) -
             "",
             f"{count} 本のゲームを収録しています．",
             "",
-            "| ゲーム | プレイの様子 | 概要 | リポジトリ |",
-            "|---|---|---|---|",
+            "| ゲーム | プレイの様子 | 概要 |",
+            "|---|---|---|",
         ]
     else:
         lines = [
@@ -145,8 +145,8 @@ def render_catalog(games: list[dict[str, Any]], *, root: Path, japanese: bool) -
             "",
             f"{count} game(s).",
             "",
-            "| Game | Preview | Summary | Repo |",
-            "|---|---|---|---|",
+            "| Game | Preview | Summary |",
+            "|---|---|---|",
         ]
 
     # Link to the game's own repository: a relative link to the submodule path
@@ -157,8 +157,7 @@ def render_catalog(games: list[dict[str, Any]], *, root: Path, japanese: bool) -
         summary = game["summary_ja"] if japanese else game["summary"]
         lines.append(
             f"| [{escape_cell(title)}](https://github.com/akitenkrad/{key}) | "
-            f"{preview_cell(root, game, japanese=japanese)} | {escape_cell(summary)} | "
-            f"[{key}](https://github.com/akitenkrad/{key}) |"
+            f"{preview_cell(root, game, japanese=japanese)} | {escape_cell(summary)} |"
         )
     lines.extend(("", END_MARKER))
     return "\n".join(lines)
