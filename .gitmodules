@@ -13,3 +13,6 @@
 [submodule "games/rs-fifo-tic-tac-toe"]
 	path = games/rs-fifo-tic-tac-toe
 	url = https://github.com/akitenkrad/rs-fifo-tic-tac-toe.git
+[submodule "games/rs-typing-trainer"]
+	path = games/rs-typing-trainer
+	url = https://github.com/akitenkrad/rs-typing-trainer.git

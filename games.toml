@@ -41,3 +41,11 @@ title_ja = "FIFO 三目並べ"
 summary = "Tic-tac-toe where old marks vanish: choose the timing rule (T1 / T2 / T3) and how many marks each side keeps, play a CPU that has solved every position by retrograde analysis, and replay recorded games."
 summary_ja = "古い手が消える三目並べ．消えるタイミング（T1・T2・T3）と残せる手の数を選べ，後退解析で全局面を解いた CPU と対戦できる．棋譜のリプレイ・録画にも対応．"
 tags = ["strategy", "retrograde-analysis", "ratatui", "tui"]
+
+[[games]]
+key = "rs-typing-trainer"
+title = "Typing trainer"
+title_ja = "タイピング練習"
+summary = "Train touch typing with an on-screen keyboard (Dvorak, Colemak and more): word, romaji, sentence and adaptive drills, a fixed benchmark, keystroke analysis, and session replay."
+summary_ja = "打鍵と連動するキーボード表示（Dvorak・Colemak ほか）で，英単語・ローマ字・短文・弱点の重点練習ができるタイピング練習．固定のベンチマーク，打鍵の傾向分析，記録のリプレイにも対応．"
+tags = ["typing", "training", "ratatui", "tui"]
