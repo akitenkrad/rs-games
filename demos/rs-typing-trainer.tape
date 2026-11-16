@@ -6,7 +6,7 @@ Set Height 520
 Set Padding 10
 Set TypingSpeed 0
 Hide
-Type "clear && games/rs-typing-trainer/target/release/rs-typing-trainer --lang en replay games/rs-typing-trainer/examples/records/dvorak-sentence-en.ttrec"
+Type "clear && games/rs-typing-trainer/target/release/rs-typing-trainer --lang en replay --graphics off games/rs-typing-trainer/examples/records/dvorak-sentence-en.ttrec"
 Enter
 Sleep 300ms
 Show
