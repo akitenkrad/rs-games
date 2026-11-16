@@ -10,4 +10,4 @@ Type "clear && games/rs-typing-trainer/target/release/rs-typing-trainer --lang e
 Enter
 Sleep 300ms
 Show
-Sleep 23.016714s
+Sleep 22.638182s
