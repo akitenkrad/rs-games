@@ -66,4 +66,4 @@ Work on a game in its own repository (or inside `games/<key>`, which is a full c
 `.github/workflows/ci.yml` runs on every push and pull request to `main`:
 
 - **catalog** — runs the tests in `tests/`, then `python3 scripts/gen_catalog.py --check` fails if the README tables are out of date with `games.toml`, or if `games.toml` and `.gitmodules` disagree.
-- **games** — checks out all submodules and runs `cargo test --locked` in every game. rs-typing-trainer is tested with `--release`, because its tests take about 14 minutes in debug mode on the runner.
+- **games** — checks out all submodules and runs `cargo test --locked` in every game. rs-typing-trainer is tested with `--release --lib --bins --test all`: its tests take about 14 minutes in debug mode on the runner, and its timing tests (`tests/perf`) are too tight for a shared runner, so they are left to the game's own repository.

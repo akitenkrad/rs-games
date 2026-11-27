@@ -43,14 +43,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Games whose debug-mode tests are too slow on the runner are tested
-          # with optimizations (rs-typing-trainer: ~14 min in debug).
-          release_games=" rs-typing-trainer "
+          # Extra cargo test arguments per game. rs-typing-trainer's tests take
+          # ~14 min in debug on the runner, so they run with optimizations.
+          # Its tests/perf checks absolute timings, which are too tight for a
+          # shared runner in release mode; this CI only smoke-tests the games,
+          # so it runs the library, binary and tests/all targets only.
           while IFS= read -r key; do
             args=(--locked)
-            if [[ $release_games == *" $key "* ]]; then
-              args+=(--release)
-            fi
+            case $key in
+              rs-typing-trainer) args+=(--release --lib --bins --test all) ;;
+            esac
             echo "::group::cargo test ${args[*]} ($key)"
             (cd "games/$key" && cargo test "${args[@]}")
             echo "::endgroup::"
