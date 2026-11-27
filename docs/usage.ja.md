@@ -66,4 +66,4 @@ git commit -m "Update games"
 `.github/workflows/ci.yml` は `main` への push と pull request のたびに動きます．
 
 - **catalog** — `tests/` のテストを実行した後，`python3 scripts/gen_catalog.py --check` を実行します．README の表が `games.toml` とずれているとき，または `games.toml` と `.gitmodules` が食い違っているときに失敗します．
-- **games** — すべてのサブモジュールを取得し，各ゲームで `cargo test --locked` を実行します．
+- **games** — すべてのサブモジュールを取得し，各ゲームで `cargo test --locked` を実行します．rs-typing-trainer だけは `--release` を付けます．デバッグビルドではテストに約 14 分かかるためです．

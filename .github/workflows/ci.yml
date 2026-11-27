@@ -43,9 +43,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Games whose debug-mode tests are too slow on the runner are tested
+          # with optimizations (rs-typing-trainer: ~14 min in debug).
+          release_games=" rs-typing-trainer "
           while IFS= read -r key; do
-            echo "::group::cargo test --locked ($key)"
-            (cd "games/$key" && cargo test --locked)
+            args=(--locked)
+            if [[ $release_games == *" $key "* ]]; then
+              args+=(--release)
+            fi
+            echo "::group::cargo test ${args[*]} ($key)"
+            (cd "games/$key" && cargo test "${args[@]}")
             echo "::endgroup::"
           done < <(python3 - <<'PY'
           import tomllib
