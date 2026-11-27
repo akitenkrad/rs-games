@@ -67,6 +67,32 @@ class RecordDemosIntegrationTests(unittest.TestCase):
         self.assertIn("vhs", result.stderr.lower())
 
 
+    def test_sixel_tape_requires_vhs_override(self) -> None:
+        (self.root / "demos" / "rs-x.tape").write_text(
+            "Output docs/assets/games/rs-x.gif\nSet Sixel true\n", encoding="utf-8"
+        )
+        env = os.environ.copy()
+        env.pop("VHS", None)
+
+        result = self.run_script("rs-x", env=env)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("VHS", result.stderr)
+        self.assertIn("Sixel", result.stderr)
+
+    def test_reports_missing_vhs_override(self) -> None:
+        (self.root / "demos" / "rs-x.tape").write_text(
+            "Output docs/assets/games/rs-x.gif\n", encoding="utf-8"
+        )
+        env = os.environ.copy()
+        env["VHS"] = str(self.root / "no-such-vhs")
+
+        result = self.run_script("rs-x", env=env)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("no-such-vhs", result.stderr)
+
+
 class DemoTapeContractTests(unittest.TestCase):
     def test_each_tape_replays_its_game_and_stays_on_the_final_position(self) -> None:
         tapes = sorted((PROJECT_ROOT / "demos").glob("*.tape"))
@@ -86,6 +112,9 @@ class DemoTapeContractTests(unittest.TestCase):
                 self.assertIn(f"games/{key}/target/release/{key} --lang en replay ", contents)
                 # The GIF must end on the final position, not on an empty shell after the game quits.
                 self.assertNotIn("--exit-on-end", contents)
+                # Sixel capture and --graphics off contradict each other.
+                if "Set Sixel true" in contents.splitlines():
+                    self.assertNotIn("--graphics off", contents)
 
 
 if __name__ == "__main__":

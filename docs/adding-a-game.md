@@ -109,6 +109,16 @@ scripts/record-demos.sh rs-nim rs-gomoku  # only these
 
 The script builds each game with `cargo build --release --locked`, runs `vhs` on its tape and regenerates the README tables. It needs `vhs` on `PATH`.
 
+### Games that draw terminal images
+
+rs-fifo-tic-tac-toe and rs-tic-tac-toe draw their board as terminal images. A released VHS (v0.12.1) answers that the terminal supports Sixel but leaves the image layer out of the recording, so those images would be missing from the GIF. Their tapes therefore set `Set Sixel true`, which needs a VHS built from [charmbracelet/vhs#783](https://github.com/charmbracelet/vhs/pull/783) (not yet merged). Point `VHS` at that build:
+
+```sh
+VHS=~/.local/bin/vhs-sixel scripts/record-demos.sh rs-fifo-tic-tac-toe rs-tic-tac-toe
+```
+
+The script refuses a tape with `Set Sixel true` when `VHS` is not set. A game that draws images but is recorded with a released VHS must pass `--graphics off` instead. Once #783 is in a VHS release, the `VHS` override can go.
+
 ## Removing a game
 
 ```sh

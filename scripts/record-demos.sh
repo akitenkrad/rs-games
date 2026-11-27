@@ -36,8 +36,19 @@ for key in "${keys[@]}"; do
   fi
 done
 
-if ! command -v vhs >/dev/null 2>&1; then
-  echo "vhs is required but was not found on PATH" >&2
+# VHS selects the vhs binary (default: vhs on PATH). Tapes with "Set Sixel true"
+# record terminal images and need a vhs build with Sixel capture
+# (charmbracelet/vhs#783); a released vhs rejects that setting.
+vhs_bin=${VHS:-vhs}
+for key in "${keys[@]}"; do
+  if [[ -z ${VHS:-} ]] && grep -q '^Set Sixel true' "demos/$key.tape"; then
+    echo "demos/$key.tape sets Sixel: set VHS to a vhs build with Sixel capture (charmbracelet/vhs#783)" >&2
+    exit 1
+  fi
+done
+
+if ! command -v "$vhs_bin" >/dev/null 2>&1; then
+  echo "vhs is required but was not found: $vhs_bin" >&2
   exit 1
 fi
 
@@ -46,7 +57,7 @@ for key in "${keys[@]}"; do
   printf 'Building %s in release mode...\n' "$key"
   cargo build --release --locked --manifest-path "games/$key/Cargo.toml"
   printf 'Recording demos/%s.tape...\n' "$key"
-  vhs "demos/$key.tape"
+  "$vhs_bin" "demos/$key.tape"
 done
 
 python3 scripts/gen_catalog.py

@@ -109,6 +109,16 @@ scripts/record-demos.sh rs-nim rs-gomoku  # only these
 
 スクリプトは各ゲームを `cargo build --release --locked` でビルドし，tape に対して `vhs` を実行して，README の表を作り直します．`PATH` に `vhs` が必要です．
 
+### 端末に画像を描くゲーム
+
+rs-fifo-tic-tac-toe と rs-tic-tac-toe は盤面を端末の画像で描きます．リリース版の VHS（v0.12.1）は端末が Sixel を使えると答えるのに，画像の層を録画に含めないため，GIF から画像が抜けます．そこでこの 2 本の tape には `Set Sixel true` を書いています．これには [charmbracelet/vhs#783](https://github.com/charmbracelet/vhs/pull/783)（未マージ）からビルドした VHS が要ります．`VHS` でそのビルドを指定してください．
+
+```sh
+VHS=~/.local/bin/vhs-sixel scripts/record-demos.sh rs-fifo-tic-tac-toe rs-tic-tac-toe
+```
+
+`Set Sixel true` のある tape は，`VHS` を指定しないとスクリプトが拒否します．画像を描くゲームをリリース版の VHS で録る場合は，代わりに `--graphics off` を付けてください．#783 が VHS のリリースに入ったら，`VHS` の指定は要らなくなります．
+
 ## ゲームの削除
 
 ```sh
